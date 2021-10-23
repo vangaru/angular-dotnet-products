@@ -1,18 +1,57 @@
 <div class="ui-grid ui-fluid">
   <div class="ui-inputgroup ui-grid-col-3 pr-1 pb-1">
     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-    <input type="text" pInputText placeholder="fuck" [(ngModel)]="name">
+    <input type="text" pInputText placeholder="Product name" [(ngModel)]="name"
+           id="productName" name="productName" #productName="ngModel"
+           required minlength="3">
   </div>
   <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-    <input type="text" pInputText placeholder="fuck" [(ngModel)]="company">
+    <input type="text" pInputText placeholder="Company name" [(ngModel)]="company"
+           id="companyName" name="companyName" #companyName="ngModel"
+           required minlength="3">
   </div>
   <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
-    <input type="number" pInputText placeholder="fuck" [(ngModel)]="price">
+    <input type="number" pInputText placeholder="Product price" [(ngModel)]="price"
+           id="productPrice" name="productPrice" #productPrice="ngModel"
+           required pattern="([1-9]|[1-9][0-9]{1,3}|10000)">
   </div>
   <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
-    <button pButton type="button" icon="pi pi-check"
+    <button [disabled]="productName.invalid || companyName.invalid || productPrice.invalid"
+            pButton type="button" icon="pi pi-plus"
             class="ui-button-success" (click)="onAddProduct()"></button>
+  </div>
+</div>
+<div class="ui-grid ui-fluid">
+  <div class="ui-grid-col-3 pr-1 pb-1">
+    <div *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+      <div *ngIf="productName.errors?.required">
+        <span class="alert">Product name required</span>
+      </div>
+      <div *ngIf="productName.errors?.minlength">
+        <span class="alert">Product name must be at least 3 charecters</span>
+      </div>
+    </div>
+  </div>
+  <div class="ui-grid-col-3 pl-1 pb-1">
+    <div *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)">
+      <div *ngIf="companyName.errors?.required">
+        <span class="alert">Company name required</span>
+      </div>
+      <div *ngIf="companyName.errors?.minlength">
+        <span class="alert">Company name must be at least 3 characters</span>
+      </div>
+    </div>
+  </div>
+  <div class="ui-grid-col-3 pl-1 pb-1">
+    <div *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+      <div *ngIf="productPrice.errors?.required">
+        <span class="alert">Product price required</span>
+      </div>
+      <div *ngIf="productPrice.errors?.pattern">
+        <span class="alert">Product price must be more than 1 and less than 10000</span>
+      </div>
+    </div>
   </div>
 </div>

@@ -10,7 +10,7 @@ import {ProductService} from "../services/product.service";
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
   firstPage: number = 0;
-  rowsPerPage: number = 1;
+  rowsPerPage: number = 5;
 
   constructor(private _productService: ProductService) { }
 
@@ -31,4 +31,6 @@ export class ProductsComponent implements OnInit {
         (product) => this.products = [...this.products, product]
       )
   }
+
+
 }
