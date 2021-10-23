@@ -1,0 +1,18 @@
+<div class="ui-grid ui-fluid">
+  <div class="ui-inputgroup ui-grid-col-3 pr-1 pb-1">
+    <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+    <input type="text" pInputText placeholder="fuck" [(ngModel)]="name">
+  </div>
+  <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
+    <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+    <input type="text" pInputText placeholder="fuck" [(ngModel)]="company">
+  </div>
+  <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
+    <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+    <input type="number" pInputText placeholder="fuck" [(ngModel)]="price">
+  </div>
+  <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
+    <button pButton type="button" icon="pi pi-check"
+            class="ui-button-success" (click)="onAddProduct()"></button>
+  </div>
+</div>

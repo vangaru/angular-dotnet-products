@@ -12,13 +12,16 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import {TableModule} from "primeng/table";
 import {DataViewModule} from "primeng/dataview";
 import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import { AddProductFormComponent } from './add-product-form/add-product-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     ProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    AddProductFormComponent
   ],
     imports: [
         BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
@@ -32,7 +35,8 @@ import {ButtonModule} from "primeng/button";
         ]),
         TableModule,
         DataViewModule,
-        ButtonModule
+        ButtonModule,
+        InputTextModule
     ],
   providers: [],
   bootstrap: [AppComponent]

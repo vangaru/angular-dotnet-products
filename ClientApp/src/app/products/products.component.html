@@ -1,3 +1,5 @@
+<app-add-product-form (addProduct)="addProduct($event)"></app-add-product-form>
+
 <p-table [value]="products" responsive [paginator]="true" [rows]="rowsPerPage"
   [showCurrentPageReport]="true" [(first)]="firstPage"
   [rowsPerPageOptions]="[1, 2, 3, 4, 5]">
@@ -6,7 +8,7 @@
       <th pSortableColumn="name">
         <h4>Product name</h4> <p-sortIcon field="name"></p-sortIcon>
       </th>
-      <th pSortableColumn="company">
+      <th pSortableColumn="company">f
         <h4>Company name</h4> <p-sortIcon field="company"></p-sortIcon>
       </th>
       <th pSortableColumn="price">

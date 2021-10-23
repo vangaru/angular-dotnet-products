@@ -24,4 +24,11 @@ export class ProductsComponent implements OnInit {
       );
   }
 
+  addProduct(product: Product) {
+    this._productService
+      .createProduct(product)
+      .subscribe(
+        (product) => this.products = [...this.products, product]
+      )
+  }
 }
