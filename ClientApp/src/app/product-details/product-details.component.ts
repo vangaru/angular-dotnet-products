@@ -13,9 +13,9 @@ export class ProductDetailsComponent implements OnInit {
   product: Product;
 
   constructor(
-    private productService: ProductService,
-    private route: ActivatedRoute,
-    private location: Location
+    private _productService: ProductService,
+    private _route: ActivatedRoute,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -23,14 +23,14 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   private setProduct() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService
+    const id = Number(this._route.snapshot.paramMap.get('id'));
+    this._productService
       .getProduct(id)
       .subscribe(
         (product) => this.product = product);
   }
 
   goBack() {
-    this.location.back();
+    this._location.back();
   }
 }

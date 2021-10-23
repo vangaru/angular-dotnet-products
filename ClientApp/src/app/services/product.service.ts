@@ -7,28 +7,28 @@ import {Product} from "../product";
   providedIn: 'root'
 })
 export class ProductService {
-  private productsUrl = "/api/products";
+  private _productsUrl = "/api/products";
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private _httpClient: HttpClient) {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.productsUrl);
+    return this._httpClient.get<Product[]>(this._productsUrl);
   }
 
   getProduct(id: number): Observable<Product> {
-    return this.httpClient.get<Product>(`${this.productsUrl}/${id}`);
+    return this._httpClient.get<Product>(`${this._productsUrl}/${id}`);
   }
 
   createProduct(product: Product): Observable<Product> {
-    return this.httpClient.post<Product>(this.productsUrl, product);
+    return this._httpClient.post<Product>(this._productsUrl, product);
   }
 
   updateProduct(product: Product): Observable<any> {
-    return this.httpClient.put(this.productsUrl, product);
+    return this._httpClient.put(this._productsUrl, product);
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.httpClient.delete<Product>(`${this.productsUrl}/${id}`);
+    return this._httpClient.delete<Product>(`${this._productsUrl}/${id}`);
   }
 }

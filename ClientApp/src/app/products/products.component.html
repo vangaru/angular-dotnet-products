@@ -1,7 +1,31 @@
-<div>
-  <ul>
-    <li *ngFor="let product of products">
-      <app-product [product]="product"></app-product>
-    </li>
-  </ul>
-</div>
+<p-table [value]="products" responsive [paginator]="true" [rows]="rowsPerPage"
+  [showCurrentPageReport]="true" [(first)]="firstPage"
+  [rowsPerPageOptions]="[1, 2, 3, 4, 5]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="name">
+        <h4>Product name</h4> <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="company">
+        <h4>Company name</h4> <p-sortIcon field="company"></p-sortIcon>
+      </th>
+      <th pSortableColumn="price">
+        <h4>Product price</h4> <p-sortIcon field="price"></p-sortIcon>
+      </th>
+      <th pSortableColumn="id">
+        <h4>Product id</h4> <p-sortIcon field="id"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td><h4>{{product.name}}</h4></td>
+      <td><h4>{{product.company}}</h4></td>
+      <td><h4>{{product.price}}</h4></td>
+      <td><h4>{{product.id}}</h4></td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <h4>Total products: {{products.length}}</h4>
+  </ng-template>
+</p-table>
