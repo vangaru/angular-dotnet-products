@@ -1,3 +1,46 @@
-<div class="ui-grid ui-fluid">
-
+<h5 class="text-xl">Update product name</h5>
+<div class="ui-inputgroup ui-fluid -mt-5">
+  <span class="ui-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+  <input pInputText type="text" [(ngModel)]="product.name" value="{{product.name}}"
+         id="productName" name="productName" placeholder="Product name"
+         #productName="ngModel" minlength="3" required />
 </div>
+<div *ngIf="productName.invalid && (productName.dirty || productName.touched)">
+  <div *ngIf="productName.errors?.required">
+    <span class="alert">Product name required</span>
+  </div>
+  <div *ngIf="productName.errors?.minlength">
+    <span class="alert">Product name must be at least 3 charecters</span>
+  </div>
+</div>
+<h5 class="text-xl">Update company name</h5>
+<div class="ui-inputgroup ui-fluid -mt-5">
+  <span class="ui-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+  <input pInputText type="text" [(ngModel)]="product.company" value="{{product.company}}"
+         id="productCompany" name="productCompany" placeholder="Company name"
+         #companyName="ngModel" minlength="3" required />
+</div>
+<div *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)">
+  <div *ngIf="companyName.errors?.required">
+    <span class="alert">Company name required</span>
+  </div>
+  <div *ngIf="companyName.errors?.minlength">
+    <span class="alert">Company name must be at least 3 charecters</span>
+  </div>
+</div>
+<h5 class="text-xl">Update product price</h5>
+<div class="ui-inputgroup ui-fluid -mt-5">
+  <span class="ui-inputgroup-addon"><i class="pi pi-pencil"></i></span>
+  <input pInputText type="text" [(ngModel)]="product.price" value="{{product.price}}"
+         id="productPrice" name="productPrice" placeholder="Product price"
+         #productPrice="ngModel" pattern="([1-9]|[1-9][0-9]{1,3}|1000)" required />
+</div>
+<div *ngIf="productPrice.invalid && (productPrice.dirty || productPrice.touched)">
+  <div *ngIf="productPrice.errors?.required">
+    <span class="alert">Product price required</span>
+  </div>
+  <div *ngIf="productPrice.errors?.pattern">
+    <span class="alert">Product price must be more than 1 and less than 10000</span>
+  </div>
+</div>
+<button pButton type="button" label="Update" class="ui-button-success mt-3" (click)="updateProduct()"></button>
