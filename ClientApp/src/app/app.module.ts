@@ -7,7 +7,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { ProductComponent } from './product/product.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import {TableModule} from "primeng/table";
 import {DataViewModule} from "primeng/dataview";
@@ -22,7 +21,6 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     AppComponent,
     ProductsComponent,
-    ProductComponent,
     ProductDetailsComponent,
     AddProductFormComponent,
     HeaderComponent,
