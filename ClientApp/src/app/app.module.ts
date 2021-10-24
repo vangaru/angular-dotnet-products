@@ -15,6 +15,8 @@ import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
 import {KeyFilterModule} from "primeng/keyfilter";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {KeyFilterModule} from "primeng/keyfilter";
     ProductsComponent,
     ProductComponent,
     ProductDetailsComponent,
-    AddProductFormComponent
+    AddProductFormComponent,
+    HeaderComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
