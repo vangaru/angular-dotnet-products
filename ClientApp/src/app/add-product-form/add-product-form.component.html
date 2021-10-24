@@ -1,5 +1,5 @@
-<div class="ui-grid ui-fluid">
-  <div class="ui-inputgroup ui-grid-col-3 pr-1 pb-1">
+<div class="ui-fluid ui-grid-responsive">
+  <div class="ui-inputgroup ui-grid-col-3 pl-1 md:pl-0 pb-1">
     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
     <input type="text" pInputText placeholder="Product name" [(ngModel)]="name"
            id="productName" name="productName" #productName="ngModel"
@@ -15,7 +15,7 @@
     <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
     <input type="number" pInputText placeholder="Product price" [(ngModel)]="price"
            id="productPrice" name="productPrice" #productPrice="ngModel"
-           required pattern="([1-9]|[1-9][0-9]{1,3}|10000)">
+           required pattern="([1-9]|[1-9][0-9]{1,3}|1000)">
   </div>
   <div class="ui-inputgroup ui-grid-col-3 pl-1 pb-1">
     <button [disabled]="productName.invalid || companyName.invalid || productPrice.invalid"
