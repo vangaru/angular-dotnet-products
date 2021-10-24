@@ -14,6 +14,7 @@ import {DataViewModule} from "primeng/dataview";
 import {ButtonModule} from "primeng/button";
 import {InputTextModule} from "primeng/inputtext";
 import { AddProductFormComponent } from './add-product-form/add-product-form.component';
+import {KeyFilterModule} from "primeng/keyfilter";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddProductFormComponent } from './add-product-form/add-product-form.com
         TableModule,
         DataViewModule,
         ButtonModule,
-        InputTextModule
+        InputTextModule,
+        KeyFilterModule
     ],
   providers: [],
   bootstrap: [AppComponent]

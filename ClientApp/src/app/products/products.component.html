@@ -1,14 +1,21 @@
 <app-add-product-form (addProduct)="addProduct($event)"></app-add-product-form>
 
-<p-table [value]="products" responsive [paginator]="true" [rows]="rowsPerPage"
-  [showCurrentPageReport]="true" [(first)]="firstPage"
-  [rowsPerPageOptions]="[1, 3, 5, 10]">
+<p-table #productsTable [value]="products" responsive [paginator]="true" [rows]="rowsPerPage"
+  [showCurrentPageReport]="true" [(first)]="firstPage" dataKey="id"
+  [rowsPerPageOptions]="[1, 3, 5, 10]" [globalFilterFields]="['name', 'company', 'price', 'id']">
+  <ng-template pTemplate="caption">
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="pi pi-search"></i></span>
+      <input pInputText type="text" placeholder="search" id="filterByText" name="filterByText"
+             (input)="productsTable.filterGlobal($event.target.value, 'contains')" />
+    </div>
+  </ng-template>
   <ng-template pTemplate="header">
     <tr>
-      <th pSortableColumn="name">
+      <th pSortableColumn="name" >
         <h4>Product name</h4> <p-sortIcon field="name"></p-sortIcon>
       </th>
-      <th pSortableColumn="company">f
+      <th pSortableColumn="company">
         <h4>Company name</h4> <p-sortIcon field="company"></p-sortIcon>
       </th>
       <th pSortableColumn="price">
